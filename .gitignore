@@ -1,0 +1,22 @@
+# Ignorar carpetas de desarrollo
+/node_modules
+/.angular/cache
+/dist
+/tmp
+/out-tsc
+/bazel-out
+
+# NO IGNORAR la carpeta docs (esto es lo más importante)
+!/docs/
+!/docs/**
+
+# Archivos de sistema y log
+npm-debug.log
+yarn-error.log
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+*.sublime-workspace
