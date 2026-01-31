@@ -1,0 +1,177 @@
+/* Container to allow scrolling on small screens */
+.sitemap-container {
+    overflow-x: auto;
+    padding: 2rem 0;
+    text-align: center;
+}
+
+/* Base Tree Structure */
+.tree ul {
+    padding-top: 20px;
+    position: relative;
+    transition: all 0.5s;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 0;
+    padding-left: 0;
+}
+
+.tree li {
+    float: left;
+    text-align: center;
+    list-style-type: none;
+    position: relative;
+    padding: 20px 5px 0 5px;
+    transition: all 0.5s;
+}
+
+/* Connectors (Vertical Lines) */
+.tree li::before, .tree li::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 50%;
+    border-top: 2px solid #ccc;
+    width: 55%; /* Connect to sibling */
+    height: 20px;
+    z-index: -1;
+}
+
+.tree li::after {
+    right: auto;
+    left: 50%;
+    border-left: 2px solid #ccc;
+}
+
+/* Remove connectors for single children */
+.tree li:only-child::after, .tree li:only-child::before {
+    display: none;
+}
+.tree li:only-child {
+    padding-top: 0;
+}
+
+/* Remove left/right connectors for first/last children */
+.tree li:first-child::before, .tree li:last-child::after {
+    border: 0 none;
+}
+
+/* Add vertical line for the single parent connection */
+.tree li:last-child::before {
+    border-right: 2px solid #ccc;
+    border-radius: 0 5px 0 0;
+}
+.tree li:first-child::after {
+    border-radius: 5px 0 0 0;
+}
+
+/* Downward connector from parent to children */
+.tree ul ul::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    border-left: 2px solid #ccc;
+    width: 0;
+    height: 20px;
+}
+
+/* Tree Nodes (Cards) */
+.tree-node {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    background: #fff;
+    color: #666;
+    border: 1px solid #e1e4e8;
+    padding: 1rem;
+    border-radius: 12px;
+    min-width: 140px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    position: relative;
+    z-index: 10;
+}
+
+.tree-node:hover {
+    background: #fff;
+    border-color: var(--bs-primary, #0d6efd);
+    box-shadow: 0 10px 20px rgba(13, 110, 253, 0.15);
+    transform: translateY(-5px);
+    color: #333;
+}
+
+/* Active Node Styling */
+.tree-node.active-node {
+    border-color: var(--bs-primary, #0d6efd);
+    background-color: var(--bs-primary-bg-subtle, #cfe2ff);
+    color: var(--bs-primary, #0d6efd);
+}
+
+/* Root Node Specifics */
+.root-node {
+    min-width: 180px;
+    padding: 1.5rem;
+    border-color: var(--bs-primary, #0d6efd);
+    border-width: 2px;
+}
+.root-node .icon-box {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+}
+.root-node h5 {
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+/* Icon Box Styling */
+.icon-box {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.75rem;
+    font-size: 1.2rem;
+    transition: all 0.3s;
+}
+
+/* Node Content Typography */
+.node-content h6, .node-content h5 {
+    margin: 0;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 0.25rem;
+}
+.node-content span {
+    font-size: 0.75rem;
+    color: #8898aa;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Connector hover animation */
+.tree li a:hover + ul li::after, 
+.tree li a:hover + ul li::before, 
+.tree li a:hover + ul::before, 
+.tree li a:hover + ul ul::before {
+    border-color: var(--bs-primary, #0d6efd);
+}
+
+/* Category Labels (Structure, Navigation, etc.) */
+.category-label {
+    background: #f8f9fa;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #adb5bd;
+    margin-bottom: 10px;
+    display: inline-block;
+    border: 1px solid #e9ecef;
+}

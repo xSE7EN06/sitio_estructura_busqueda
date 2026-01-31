@@ -1,0 +1,138 @@
+<div class="search-page fade-in">
+
+  <!-- Hero Search Section -->
+  <section class="search-hero mb-5">
+    <div class="container">
+      <div class="text-center mb-4">
+        <h1 class="display-4 fw-bold text-gradient">Explora el Sitio</h1>
+        <p class="lead text-muted">Encuentra documentación, componentes y guías de diseño</p>
+      </div>
+
+      <div class="search-box-wrapper shadow-lg">
+        <div class="input-group input-group-lg">
+          <span class="input-group-text bg-white border-0 ps-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="text-primary">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </span>
+          <input type="text" class="form-control border-0 py-3"
+            placeholder="¿Qué estás buscando? Ej: menú, breadcrumbs..." [(ngModel)]="query" (keyup.enter)="doSearch()"
+            autofocus>
+          <button class="btn btn-primary px-4 fw-semibold" (click)="doSearch()">
+            BUSCAR
+          </button>
+        </div>
+      </div>
+
+      <div class="text-center mt-3" *ngIf="query">
+        <button class="btn btn-link text-decoration-none text-muted btn-sm" (click)="clear()">
+          Limpiar búsqueda
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="row g-4">
+
+      <!-- Sidebar Filters -->
+      <div class="col-lg-3">
+        <div class="filters-card p-4 rounded-4 sticky-top" style="top: 2rem; z-index: 10;">
+          <h5 class="fw-bold mb-3 d-flex align-items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+            </svg>
+            Filtros
+          </h5>
+
+          <div class="mb-4">
+            <label class="form-label text-uppercase text-xs fw-bold text-muted">Tipo de Contenido</label>
+            <select class="form-select border-0 bg-light-subtle shadow-sm" [(ngModel)]="filters.type"
+              (change)="doSearch()">
+              <option value="todos">Mostrar Todo</option>
+              <option value="pagina">📄 Páginas</option>
+              <option value="seccion">🧩 Secciones</option>
+            </select>
+          </div>
+
+          <div class="mb-4">
+            <label class="form-label text-uppercase text-xs fw-bold text-muted">Categoría</label>
+            <select class="form-select border-0 bg-light-subtle shadow-sm" [(ngModel)]="filters.section"
+              (change)="doSearch()">
+              <option value="todas">Todas las categorías</option>
+              <option *ngFor="let s of sections" [value]="s">{{ s }}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Results Grid -->
+      <div class="col-lg-9">
+
+        <div *ngIf="results$ | async as results; else loading">
+
+          <div class="d-flex justify-content-between align-items-center mb-4">
+            <h5 class="fw-bold mb-0 text-dark">
+              Resultados <span class="badge bg-primary-subtle text-primary rounded-pill ms-2">{{results.length}}</span>
+            </h5>
+          </div>
+
+          <!-- Empty State -->
+          <div *ngIf="results.length === 0" class="text-center py-5 empty-state rounded-4">
+            <div class="mb-3 text-muted opacity-50">
+              <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </div>
+            <h4 class="fw-normal text-muted">No encontramos lo que buscas</h4>
+            <p class="text-muted small">Intenta con otros términos o ajusta los filtros</p>
+          </div>
+
+          <!-- Results List -->
+          <div class="results-grid">
+            <a *ngFor="let item of results" [routerLink]="item.path"
+              class="result-card text-decoration-none d-block mb-3 p-4 rounded-4 bg-white shadow-hover transition-all">
+              <div class="d-flex justify-content-between align-items-start">
+                <div class="flex-grow-1">
+                  <div class="d-flex align-items-center gap-2 mb-2">
+                    <span class="badge rounded-pill text-uppercase text-xs"
+                      [ngClass]="{'bg-success-subtle text-success': item.type === 'pagina', 'bg-info-subtle text-info': item.type === 'seccion'}">
+                      {{ item.type }}
+                    </span>
+                    <span class="text-muted text-xs">•</span>
+                    <span class="text-xs fw-semibold text-secondary">{{ item.section }}</span>
+                  </div>
+                  <h3 class="h5 fw-bold text-dark mb-2">{{ item.title }}</h3>
+                  <p class="text-muted mb-0 small line-clamp-2">{{ item.description }}</p>
+                </div>
+                <div class="ms-3 text-primary opacity-0 icon-arrow transition-all">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                </div>
+              </div>
+            </a>
+          </div>
+
+        </div>
+
+        <ng-template #loading>
+          <div class="text-center py-5">
+            <div class="spinner-border text-primary" role="status">
+              <span class="visually-hidden">Cargando...</span>
+            </div>
+          </div>
+        </ng-template>
+
+      </div>
+    </div>
+  </div>
+</div>

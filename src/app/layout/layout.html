@@ -1,0 +1,70 @@
+<div class="layout-wrapper">
+    <header class="site-header">
+        <div class="container h-100">
+            <div class="header-inner">
+
+                <!-- Mobile Toggle -->
+                <button class="btn btn-icon d-md-none" (click)="toggleMobileMenu()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+
+                <!-- Brand -->
+                <a routerLink="/" class="brand">
+                    SitioEstructura
+                </a>
+
+                <!-- Desktop Nav -->
+                <nav class="desktop-nav d-none d-md-flex">
+                    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Inicio</a>
+                    <a routerLink="/elementos" routerLinkActive="active">Elementos</a>
+                    <a routerLink="/menu" routerLinkActive="active">Menú</a>
+                    <a routerLink="/breadcumbs" routerLinkActive="active">Breadcrumbs</a>
+                    <a routerLink="/mapa-sitio" routerLinkActive="active">Mapa</a>
+                </nav>
+
+                <!-- Simple Search -->
+                <form class="search-simple d-none d-md-flex" (submit)="$event.preventDefault(); goSearch()">
+                    <input placeholder="Buscar..." [(ngModel)]="quickQuery" name="quickQuery">
+                </form>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Backdrop -->
+    <div class="mobile-backdrop" [class.show]="isMobileMenuOpen" (click)="closeMobileMenu()"></div>
+
+    <!-- Mobile Menu Sidebar -->
+    <aside class="mobile-menu" [class.open]="isMobileMenuOpen">
+        <div class="mobile-menu-header">
+            <span class="fw-bold">Menú</span>
+            <button class="btn-close" (click)="closeMobileMenu()">✕</button>
+        </div>
+        <nav class="mobile-nav-links">
+            <a routerLink="/" (click)="closeMobileMenu()" routerLinkActive="active"
+                [routerLinkActiveOptions]="{exact: true}">Inicio</a>
+            <a routerLink="/elementos" (click)="closeMobileMenu()" routerLinkActive="active">Elementos</a>
+            <a routerLink="/menu" (click)="closeMobileMenu()" routerLinkActive="active">Menú</a>
+            <a routerLink="/breadcumbs" (click)="closeMobileMenu()" routerLinkActive="active">Breadcrumbs</a>
+            <a routerLink="/mapa-sitio" (click)="closeMobileMenu()" routerLinkActive="active">Mapa</a>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <div class="container" style="padding-top: 2rem;">
+            <app-breadcrumb></app-breadcrumb>
+        </div>
+        <router-outlet></router-outlet>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container text-center">
+            <p class="small">© 2024 SitioEstructura. Diseño Minimalista.</p>
+        </div>
+    </footer>
+</div>

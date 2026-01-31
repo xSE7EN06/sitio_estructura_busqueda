@@ -1,1 +1,219 @@
-/* You can add global styles to this file, and also import other style files */
+/* Minimalist Design System */
+:root {
+    /* Colors - Monochrome & Accent */
+    --bg-body: #ffffff;
+    --bg-surface: #f9fafb;
+    /* Very light gray for cards/sections */
+    --text-main: #111827;
+    --text-muted: #6b7280;
+    --primary: #000000;
+    /* Strict black for primary actions */
+    --accent: #2563eb;
+    /* Subtle blue for links/highlights */
+    --border: #e5e7eb;
+
+    /* Spacing */
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 4rem;
+
+    /* Typography */
+    --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* 1. Reset */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+img,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+/* 2. Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: var(--spacing-md);
+    letter-spacing: -0.02em;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+h5 {
+    font-size: 1.25rem;
+}
+
+p {
+    margin-bottom: var(--spacing-md);
+    color: var(--text-muted);
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-primary {
+    color: var(--accent);
+}
+
+.fw-bold {
+    font-weight: 700;
+}
+
+/* 3. Utilities */
+.container {
+    max-width: 1024px;
+    /* Narrower for reading comfort */
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+/* Flexbox Utils */
+.d-flex {
+    display: flex;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.justify-content-between {
+    justify-content: space-between;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+.gap-2 {
+    gap: var(--spacing-sm);
+}
+
+.gap-3 {
+    gap: var(--spacing-md);
+}
+
+.gap-4 {
+    gap: var(--spacing-lg);
+}
+
+/* Grid Utils */
+.grid-responsive {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+/* Spacing Utils */
+.py-5 {
+    padding-top: var(--spacing-xl);
+    padding-bottom: var(--spacing-xl);
+}
+
+.mb-4 {
+    margin-bottom: var(--spacing-lg);
+}
+
+.mt-auto {
+    margin-top: auto;
+}
+
+/* Visibility */
+.d-none {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .d-md-flex {
+        display: flex;
+    }
+
+    .d-md-none {
+        display: none;
+    }
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    /* Minimal radius */
+    font-weight: 500;
+    transition: all 0.2s;
+    cursor: pointer;
+    border: 1px solid transparent;
+    font-size: 0.95rem;
+}
+
+.btn-primary-gradient {
+    /* Remapped to simple black button */
+    background-color: var(--primary);
+    color: white;
+}
+
+.btn-primary-gradient:hover {
+    background-color: #333;
+}
+
+.btn-light {
+    background-color: white;
+    border: 1px solid var(--border);
+    color: var(--text-main);
+}
+
+.btn-light:hover {
+    border-color: var(--text-main);
+}
+
+.make-it-clean {
+    border: 0;
+    box-shadow: none;
+    background: transparent;
+}

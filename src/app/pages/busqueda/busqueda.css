@@ -1,0 +1,110 @@
+/* Custom colors and variables */
+:host {
+    display: block;
+    background-color: #f8f9fa;
+    min-height: 100vh;
+    padding-bottom: 3rem;
+}
+
+/* Animations */
+.fade-in {
+    animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.transition-all {
+    transition: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* Typography Utilities */
+.text-gradient {
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.text-xs {
+    font-size: 0.75rem;
+}
+
+.bg-light-subtle {
+    background-color: #f3f4f6;
+}
+
+/* Hero Section */
+.search-hero {
+    background: linear-gradient(to bottom, #ffffff, #f8f9fa);
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.search-box-wrapper {
+    background: white;
+    border-radius: 50rem;
+    /* Pill shape */
+    padding: 0.5rem;
+    max-width: 720px;
+    margin: 0 auto;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.search-box-wrapper input:focus {
+    box-shadow: none;
+}
+
+/* Filters Sidebar */
+.filters-card {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.form-select:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* Result Cards */
+.result-card {
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    background: white !important;
+    /* Force white over list-group default */
+    cursor: pointer;
+}
+
+.result-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    border-color: rgba(37, 99, 235, 0.2);
+}
+
+.result-card:hover .h5 {
+    color: #2563eb !important;
+}
+
+.shadow-hover {
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Arrow Icon Animation */
+.result-card:hover .icon-arrow {
+    opacity: 1 !important;
+    transform: translateX(5px);
+}
+
+/* Empty State */
+.empty-state {
+    background: rgba(0, 0, 0, 0.02);
+    border: 2px dashed rgba(0, 0, 0, 0.1);
+}

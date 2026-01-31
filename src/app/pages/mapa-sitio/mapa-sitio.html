@@ -1,0 +1,132 @@
+<div class="page-container fade-in py-5">
+    <div class="container">
+
+        <div class="text-center mb-5">
+            <span class="badge rounded-pill bg-info-subtle text-info mb-2 px-3 py-2 fw-bold text-uppercase"
+                style="font-size: 0.75rem;">Arquitectura</span>
+            <h1 class="display-4 fw-bold mb-3">Mapa del Sitio</h1>
+            <p class="lead text-muted mx-auto" style="max-width: 700px;">
+                Visualización de la estructura y jerarquía de navegación de nuestra plataforma.
+            </p>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <div class="sitemap-container">
+
+                    <div class="tree">
+                        <ul>
+                            <!-- Root Node -->
+                            <li>
+                                <a routerLink="/" class="tree-node root-node">
+                                    <div class="icon-box bg-primary text-white">
+                                        <i class="bi bi-house-door-fill"></i>
+                                    </div>
+                                    <div class="node-content">
+                                        <h5>Inicio</h5>
+                                        <span>Bienvenida</span>
+                                    </div>
+                                </a>
+
+                                <!-- First Level Branches -->
+                                <ul>
+
+                                    <!-- Branch: Estructura -->
+                                    <li>
+                                        <div class="category-label">Estructura</div>
+                                        <ul>
+                                            <li>
+                                                <a routerLink="/elementos" class="tree-node">
+                                                    <div class="icon-box bg-success-subtle text-success">
+                                                        <i class="bi bi-grid-fill"></i>
+                                                    </div>
+                                                    <div class="node-content">
+                                                        <h6>Elementos</h6>
+                                                        <span>Componentes UI</span>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a routerLink="/mapa-sitio" class="tree-node active-node">
+                                                    <div class="icon-box bg-info-subtle text-info">
+                                                        <i class="bi bi-diagram-3-fill"></i>
+                                                    </div>
+                                                    <div class="node-content">
+                                                        <h6>Mapa Sitio</h6>
+                                                        <span>Esta página</span>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                    <!-- Branch: Navegación -->
+                                    <li>
+                                        <div class="category-label">Navegación</div>
+                                        <ul>
+                                            <li>
+                                                <a routerLink="/menu" class="tree-node">
+                                                    <div class="icon-box bg-warning-subtle text-warning">
+                                                        <i class="bi bi-list"></i>
+                                                    </div>
+                                                    <div class="node-content">
+                                                        <h6>Menú</h6>
+                                                        <span>Opciones</span>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a routerLink="/breadcumbs" class="tree-node">
+                                                    <div class="icon-box bg-secondary-subtle text-secondary">
+                                                        <i class="bi bi-signpost-2-fill"></i>
+                                                    </div>
+                                                    <div class="node-content">
+                                                        <h6>Breadcrumbs</h6>
+                                                        <span>Rutas</span>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                    <!-- Branch: Utilidades -->
+                                    <li>
+                                        <div class="category-label">Utilidades</div>
+                                        <ul>
+                                            <li>
+                                                <a routerLink="/busqueda" class="tree-node">
+                                                    <div class="icon-box bg-danger-subtle text-danger">
+                                                        <i class="bi bi-search"></i>
+                                                    </div>
+                                                    <div class="node-content">
+                                                        <h6>Búsqueda</h6>
+                                                        <span>Explorar</span>
+                                                    </div>
+                                                </a>
+                                            </li>
+                                            <!-- Example of another utility if needed -->
+                                            <!-- <li>
+                                                <a href="#" class="tree-node disabled">
+                                                    <div class="icon-box bg-light text-muted">
+                                                        <i class="bi bi-gear-fill"></i>
+                                                    </div>
+                                                    <div class="node-content">
+                                                        <h6>Config</h6>
+                                                        <span>(Próximamente)</span>
+                                                    </div>
+                                                </a>
+                                            </li> -->
+                                        </ul>
+                                    </li>
+
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

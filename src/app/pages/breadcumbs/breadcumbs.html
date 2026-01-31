@@ -1,0 +1,65 @@
+<div class="page-container fade-in py-5">
+    <div class="container">
+
+        <div class="row justify-content-center text-center mb-5">
+            <div class="col-lg-8">
+                <span class="badge rounded-pill bg-warning-subtle text-warning mb-2 px-3 py-2 fw-bold text-uppercase"
+                    style="font-size: 0.75rem;">UX Design</span>
+                <h1 class="display-4 fw-bold mb-3">Breadcrumbs</h1>
+                <h4 class="text-muted fw-normal mb-4">"Migas de Pan"</h4>
+                <p class="lead text-muted">
+                    Un sistema de ayudas visuales que indica al usuario su ubicación actual dentro de la jerarquía del
+                    sitio.
+                </p>
+            </div>
+        </div>
+
+        <!-- Visual Demo -->
+        <div class="card-premium p-5 mb-5 text-center bg-white border-0 shadow-lg">
+            <h6 class="text-uppercase text-muted fw-bold mb-4 ls-1">Ejemplo Interactivo</h6>
+
+            <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '>';"
+                class="d-inline-block p-3 rounded-pill bg-light">
+                <ol class="breadcrumb mb-0 fs-5 fw-medium">
+                    <li class="breadcrumb-item"><a href="#" class="text-decoration-none"
+                            (click)="$event.preventDefault()">Inicio</a></li>
+                    <li class="breadcrumb-item"><a href="#" class="text-decoration-none"
+                            (click)="$event.preventDefault()">Tienda</a></li>
+                    <li class="breadcrumb-item"><a href="#" class="text-decoration-none"
+                            (click)="$event.preventDefault()">Electrónica</a></li>
+                    <li class="breadcrumb-item active text-primary" aria-current="page">Laptops</li>
+                </ol>
+            </nav>
+
+            <div class="mt-4 text-muted small fst-italic">
+                👆 El usuario puede volver rápidamente a niveles superiores con un solo clic.
+            </div>
+        </div>
+
+        <!-- Info Grid -->
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="p-4 rounded-4 bg-light-subtle h-100">
+                    <h5 class="fw-bold mb-3">¿Por qué usarlos?</h5>
+                    <p class="text-muted mb-0">Reducen la cantidad de acciones necesarias para volver a una categoría
+                        superior y mejoran la "encontrabilidad" del contenido.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="p-4 rounded-4 bg-light-subtle h-100">
+                    <h5 class="fw-bold mb-3">Ubicación</h5>
+                    <p class="text-muted mb-0">Comúnmente se colocan en la parte superior izquierda del contenido
+                        principal, justo debajo de la cabecera.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="p-4 rounded-4 bg-light-subtle h-100">
+                    <h5 class="fw-bold mb-3">SEO</h5>
+                    <p class="text-muted mb-0">A Google le encantan. Ayudan a los motores de búsqueda a entender la
+                        estructura de tu sitio.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
